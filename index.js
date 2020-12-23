@@ -3,7 +3,9 @@ require('./models/Url');
 
 mongoose = require('mongoose');
 
-const DATABASE = 'mongodb://localhost/short-karo';
+// mongodb+srv://vishalmourya:@Aa305132#@cluster0.7kfzg.mongodb.net/short-karo?retryWrites=true&w=majority
+// const DATABASE = 'mongodb://localhost/short-karo';
+const DATABASE = process.env.MONGOLAB_URI || 'mongodb+srv://vishalmourya:@Aa305132#@cluster0.7kfzg.mongodb.net/short-karo?retryWrites=true&w=majority';
 
 mongoose.connect(DATABASE, {
     useNewUrlParser: true,
