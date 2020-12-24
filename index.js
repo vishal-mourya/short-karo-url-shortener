@@ -5,7 +5,7 @@ mongoose = require('mongoose');
 
 // mongodb+srv://vishalmourya:@Aa305132#@cluster0.7kfzg.mongodb.net/short-karo?retryWrites=true&w=majority
 // const DATABASE = 'mongodb://localhost/short-karo';
-const DATABASE = process.env.MONGOLAB_URI || 'mongodb+srv://vishalmourya:%40Aa305132%23@cluster0.7kfzg.mongodb.net/test';
+const DATABASE = process.env.MONGOLAB_URI || 'mongodb+srv://vishalmourya:%40Aa305132%23@cluster0.7kfzg.mongodb.net/short-karo';
 
 mongoose.connect(DATABASE, {
     useNewUrlParser: true,
