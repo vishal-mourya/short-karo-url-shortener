@@ -1,6 +1,6 @@
 require('dotenv').config();
 require('./models/Url');
-require('cors');
+cors = require('cors');
 mongoose = require('mongoose');
 
 // mongodb+srv://vishalmourya:@Aa305132#@cluster0.7kfzg.mongodb.net/short-karo?retryWrites=true&w=majority
@@ -27,7 +27,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
+app.use(cors);
 // app.use(cors());
 const Url = mongoose.model('Url');
 
