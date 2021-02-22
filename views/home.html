@@ -77,15 +77,6 @@
                     },
                     type: 'POST',
                     success: function(res) {
-                        // $('#short').val(window.location.hostname+':8000/'+res.url);
-                        // $('#analytics').val(window.location.hostname+':8000/analytics/'+res.url);
-
-                        // $('#short').val(localhost+':'+res.url);
-                        // $('#analytics').val(localhost+':analytics/'+res.url)
-
-                        // $('#short').val('localhost:8000/' + res.url);
-                        // $('#short').val(window.location.hostname + ':8000/' + res.url);
-                        // $('#analytics').val(window.location.hostname + ':8000/analytics/' + res.url)
                         $('#short').val(window.location.hostname + '/' + res.url);
                         $('#analytics').val(window.location.hostname + '/analytics/' + res.url)
 

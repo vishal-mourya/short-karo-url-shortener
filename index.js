@@ -1,12 +1,9 @@
 require('dotenv').config();
 require('./models/Url');
-// cors = require('cors');
 var cors = require('cors');
 mongoose = require('mongoose');
 
-// mongodb+srv://vishalmourya:@Aa305132#@cluster0.7kfzg.mongodb.net/short-karo?retryWrites=true&w=majority
-// const DATABASE = 'mongodb://localhost/short-karo';
-const DATABASE = process.env.MONGOLAB_URI || 'mongodb+srv://vishalmourya:%40Aa305132%23@cluster0.7kfzg.mongodb.net/short-karo';
+const DATABASE = 'put mongodb url here';
 
 mongoose.connect(DATABASE, {
     useNewUrlParser: true,
@@ -28,10 +25,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(cors);
 app.use(cors());
 
 const Url = mongoose.model('Url');
+
+const port = 8000;
 
 app.get('/', (req, res) => {
     res.writeHead(200, {
@@ -52,7 +50,7 @@ app.post('/', async(req, res) => {
     var url = req.body.url;
     var len = url.length;
 
-    // url = url.slice(url[8], len - 1);
+
     var newUrl = "";
     for (var i = 8; i < len; i++) {
         newUrl += url[i];
@@ -61,7 +59,7 @@ app.post('/', async(req, res) => {
         url: newUrl,
         visitors: 0
     });
-    // console.log(newUrl);
+
     short = JSON.stringify(instance._id)
     const id = short.slice(short.length - 7, short.length - 1)
     instance.id = id;
@@ -108,6 +106,6 @@ app.post('/analytics', async(req, res) => {
     })
 })
 
-app.listen(process.env.PORT || 8000, () => {
-    console.log('Listening on port 8000');
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 })
